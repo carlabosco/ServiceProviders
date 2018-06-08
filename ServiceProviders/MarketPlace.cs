@@ -11,5 +11,12 @@ namespace ServiceProviders
         public string ItemName { get; set; }
         public double Price { get; set; }
         public string Location { get; set; }
+
+        public MarketPlace()
+        {
+            ItemName = ItemName;
+            Price = Price;
+            Location = Location;
+        }
     }
 }
