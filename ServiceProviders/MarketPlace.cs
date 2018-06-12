@@ -5,18 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ServiceProviders
-{
-    class MarketPlace
+{   //Factory design class
+    static class MarketPlace
     {
-        public string ItemName { get; set; }
-        public double Price { get; set; }
-        public string Location { get; set; }
-
-        public MarketPlace()
+        public static Product AddProduct(string itemName, double price, string location)
         {
-            ItemName = ItemName;
-            Price = Price;
-            Location = Location;
+            var product = new Product
+            {
+                ItemName = itemName,
+                Price = price,
+                Location = location,
+                ProductNumber = Product.baseProductNumber++
+            };
+            return product;
         }
     }
 }

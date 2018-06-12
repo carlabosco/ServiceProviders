@@ -10,32 +10,13 @@ namespace ServiceProviders
     {
         static void Main(string[] args)
         {
-            var provider1 = new Providers()
-            {
-                Name = "Maria Santos",
-                Email = "maria@gmail.com",
-                PhoneNumber = "450-999-0000",
-                City = "Isaquah",
-                Service = "Catering"
-            };
+            var provider1 = new Provider("Maria Santos", ServiceType.Bolos, "Isaquah", "maria@gmail.com", "450-999-0000");
 
-            var provider2 = new Providers()
-            {
-                Name = "Ana Silva",
-                Email = "anasilva@gmail.com",
-                PhoneNumber = "650-999-0000",
-                City = "Seattle",
-                Service = "Manicure, Pedicure"
-            };
+            var provider2 = new Provider("Ana Silva", ServiceType.Manicure, "Seattle", "anasilva@gmail.com", "650-999-0000");
 
             Console.WriteLine($"Name: {provider2.Name}, Provider Number: {provider2.ProviderNumber}");
 
-            var forSale1 = new MarketPlace()
-            {
-                ItemName = "couch",
-                Price = 250,
-                Location = "Sammamish"
-            };
+            var product = MarketPlace.AddProduct("couch", 250, "Issaquah");
         }
     }
 }
