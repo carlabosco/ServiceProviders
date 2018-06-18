@@ -10,13 +10,29 @@ namespace ServiceProviders
     {
         static void Main(string[] args)
         {
-            var provider1 = new Provider("Maria Santos", ServiceType.Bolos, "Isaquah", "maria@gmail.com", "450-999-0000");
+            Console.WriteLine("Provider Registration");
+            Console.Write("Name: ");
+            var name = Console.ReadLine();
 
-            var provider2 = new Provider("Ana Silva", ServiceType.Manicure, "Seattle", "anasilva@gmail.com", "650-999-0000");
+            Console.WriteLine("Service: ");
+            var typesOfService = Enum.GetNames(typeof(ServiceType));
+                for (int i = 0; i < typesOfService.Length; i++)
+                {
+                    Console.WriteLine($"{i}. {typesOfService[i]}");
+                }
+            var typeOfService = (ServiceType)Enum.Parse(typeof(ServiceType),Console.ReadLine());
 
-            Console.WriteLine($"Name: {provider2.Name}, Provider Number: {provider2.ProviderNumber}");
+            Console.Write("City: ");
+            var city = Console.ReadLine();
+            Console.Write("Email: ");
+            var email = Console.ReadLine();
+            Console.Write("Phone number: ");
+            var phoneNumber = Console.ReadLine();
 
-            var product = MarketPlace.AddProduct("couch", 250, "Issaquah");
+            var serviceProvider = MarketPlace.AddProvider(name, typeOfService, city, email, phoneNumber);
+
+            Console.WriteLine($"Name: {serviceProvider.Name}, Email: {serviceProvider.Email}, Service: {serviceProvider.Service}");
+            Console.ReadLine();
         }
     }
 }
